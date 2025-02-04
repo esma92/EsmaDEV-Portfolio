@@ -46,3 +46,6 @@ tsconfig.tsbuildinfo
 .pnpm-store/
 .yarn/
 .pnp.*
+
+# Future improvements file
+*.txt
