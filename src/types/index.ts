@@ -58,3 +58,12 @@ export interface Project {
   description: string;
   technologies: string[];
 }
+
+export interface BlogPost {
+  title: string;
+  description: string;
+  date: string;
+  readTime: string;
+  imageUrl: string;
+  link: string;
+}
