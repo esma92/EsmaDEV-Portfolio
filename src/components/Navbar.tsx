@@ -10,7 +10,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const activeSection = useActiveSection();
 
-  const navItems = ['about', 'projects', 'contact'];
+  const navItems = ['about', 'projects', 'blog', 'contact'];
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -70,31 +70,51 @@ export default function Navbar() {
           <div className="flex items-center space-x-4">
             <button
               onClick={() => changeLanguage(language === 'en' ? 'es' : 'en')}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="p-2 rounded-lg"
             >
-              <Languages className="h-5 w-5 text-gray-700 dark:text-gray-300" />
+              {/* <Languages className="h-5 w-5 text-gray-700 dark:text-gray-300" /> */}
+              {language === 'en' ? (
+                <div className='flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'>
+                  <Languages className="h-5 w-5 text-gray-700 dark:text-gray-300" />
+                  EN 
+                </div>
+              ) : (
+                <div className='flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'>
+                  <Languages className="h-5 w-5 text-gray-700 dark:text-gray-300" />
+                  ES
+                </div>
+              )}
             </button>
             
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="p-2 rounded-lg"
             >
               {theme === 'dark' ? (
-                <Sun className="h-5 w-5 text-gray-300" />
+                <div className='flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'>
+                  <Sun className="h-5 w-5 text-gray-300" />
+                </div>
               ) : (
-                <Moon className="h-5 w-5 text-gray-700" />
+                <div className='flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'>
+                  <Moon className="h-5 w-5 text-gray-700" />
+                </div>
               )}
             </button>
 
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="md:hidden p-2 rounded-lg"
             >
               {isMenuOpen ? (
-                <X className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                <div className='flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'>
+                  <X className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                </div>
+                
               ) : (
-                <Menu className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                <div className='flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'>
+                  <Menu className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                </div>
               )}
             </button>
           </div>
