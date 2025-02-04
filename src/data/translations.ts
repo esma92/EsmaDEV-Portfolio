@@ -4,7 +4,8 @@ export const translations = {
       home: 'Home',
       about: 'About',
       projects: 'Projects',
-      contact: 'Contact me'
+      contact: 'Contact me',
+      blog: 'Blog'
     },
     hero: {
       welcome: 'Welcome',
@@ -69,6 +70,30 @@ export const translations = {
       sending: 'Sending...',
       success: 'Message sent successfully!',
       error: 'There was an error sending your message. Please try again.',
+    },
+    blog: {
+      title: 'Dev<>Blog',
+      description: 'Here I share technical knowledge and my own experience in its application.',
+      posts:{
+        first: {
+          title: 'Web Development Best Practices',
+          description: 'Suggested Best Practices for Web Development in 2025',
+          date: '2025-02-14',
+          readTime: '5 minutes'
+        },
+        second: {
+          title: 'Modern Javascript Features',
+          description: 'Modern Javascript Features',
+          date: '2024-03-14',
+          readTime: '20 minutes'
+        },
+        third: {
+          title: 'ReactJS Performance Improvement Tips',
+          description: 'ReactJS Performance Improvement Tips',
+          date: '2025-02-06',
+          readTime: '30 minutes'
+        }
+      }
     }
   },
   es: {
@@ -76,7 +101,8 @@ export const translations = {
       home: 'Inicio',
       about: 'Sobre Mí',
       projects: 'Proyectos',
-      contact: 'Contacto'
+      contact: 'Contacto',
+      blog: 'Blog'
     },
     hero: {
       welcome: 'Bienvenido(a)',
@@ -141,6 +167,30 @@ export const translations = {
       sending: 'Enviando...',
       success: '¡Mensaje enviado con éxito!',
       error: 'Hubo un error al enviar tu mensaje. Por favor, intenta de nuevo.',
+    },
+    blog: {
+      title: 'Dev<>Blog',
+      description: 'Aquí comparto conocimientos técnicos y mi propia experiencia en su aplicación',
+      posts:{
+        first: {
+          title: 'Mejores prácticas del desarrollo web',
+          description: 'Mejores prácticas sugeridas para el desarrollo web en el 2025',
+          date: '2025-02-14',
+          readTime: '5 minutos'
+        },
+        second: {
+          title: 'Características de Javascript moderno',
+          description: 'Características de Javascript moderno',
+          date: '2024-03-14',
+          readTime: '20 minutos'
+        },
+        third: {
+          title: 'Tips de mejoras de rendimiento en ReactJS',
+          description: 'Tips de mejoras de rendimiento en ReactJS',
+          date: '2025-02-06',
+          readTime: '30 minutos'
+        }
+      }
     }
   }
 };
