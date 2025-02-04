@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { Moon, Sun, Languages, Code, Menu, X } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useActiveSection } from '../hooks/useActiveSection';
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const { language, changeLanguage, t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const activeSection = useActiveSection();
 
   const navItems = ['about', 'projects', 'contact'];
 
@@ -22,6 +24,19 @@ export default function Navbar() {
       setIsMenuOpen(false);
     }
   };
+
+  const getNavItemClasses = (item: string) => {
+    return `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+      activeSection === item
+        ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
+        : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+    }`;
+  };
+
+  // const getNavLabel = (item: string) => {
+  //   if (item === 'hero') return t('nav.home');
+  //   return t(`nav.${item}`);
+  // };
 
   return (
     <nav className="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50">
@@ -42,8 +57,10 @@ export default function Navbar() {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className={getNavItemClasses(item)}
+                  // className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
+                  {/* {getNavLabel(item)} */}
                   {t(`nav.${item}`)}
                 </button>
               ))}

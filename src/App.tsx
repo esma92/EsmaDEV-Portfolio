@@ -6,6 +6,7 @@ import About from './components/About/index';
 import Contact from './components/Contact/index';
 import Projects from './components/Projects/index';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollProgress from './components/ScrollProgress';
 import FloatingBlobs from './components/FloatingBlobs';
 
 // Definimos los blobs...
@@ -48,6 +49,7 @@ function App() {
         <div className="relative min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-200">
           {/* Fondo común para toda la aplicación */}
           <div className="fixed inset-0 bg-grid-pattern opacity-[0.03] dark:opacity-[0.05] pointer-events-none" />
+          <ScrollProgress />
           
           {/* Contenido de la aplicación */}
           <div className="relative">
