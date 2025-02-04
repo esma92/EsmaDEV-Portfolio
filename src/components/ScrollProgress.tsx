@@ -19,7 +19,8 @@ export default function ScrollProgress() {
   return (
     <div className="fixed top-0 left-0 w-full h-1.5 z-50 bg-gray-200/50 dark:bg-gray-700/50">
       <div
-        className="h-full bg-gradient-to-r from-blue-900 via-purple-900 to-pink-900 shadow-lg shadow-blue-400/60 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 dark:shadow-blue-400/60"
+        // className="h-full bg-gradient-to-r from-purple-600 to-red-600 shadow-lg shadow-blue-400/60 dark:from-purple-300 dark:to-red-300 dark:shadow-blue-400/60"
+        className="h-full bg-gradient-to-r from-purple-600 to-red-600 shadow-lg shadow-blue-400/60 dark:from-purple-300 dark:to-red-300 dark:shadow-blue-400/60"
         style={{ width: `${progress}%` }}
       />
     </div>
