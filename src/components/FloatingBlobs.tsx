@@ -19,9 +19,7 @@ interface FloatingBlobsProps {
 const FloatingBlobs: React.FC<FloatingBlobsProps> = ({ blobs }) => {
 
   return (
-    <div
-      className="absolute inset-0 overflow-hidden pointer-events-none transition-opacity duration-1000"
-    >
+    <div className="absolute inset-0 overflow-hidden pointer-events-none transition-opacity duration-1000">
       {blobs.map((blob, index) => (
         <div
           key={index}
