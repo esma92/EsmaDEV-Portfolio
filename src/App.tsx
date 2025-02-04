@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import About from './components/About/index';
 import Contact from './components/Contact/index';
 import Projects from './components/Projects/index';
+import Blog from './components/Blog/index';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollProgress from './components/ScrollProgress';
 import FloatingBlobs from './components/FloatingBlobs';
@@ -60,6 +61,7 @@ function App() {
             <Hero />
             <About />
             <Projects />
+            <Blog />
             <Contact />
             <ScrollToTop />
           </div>
