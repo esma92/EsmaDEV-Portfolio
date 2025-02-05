@@ -129,7 +129,7 @@ export default function Navbar() {
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md"
+                className={`block w-full text-left ${getNavItemClasses(item)}`}
               >
                 {t(`nav.${item}`)}
               </button>
