@@ -1,5 +1,5 @@
 import { useLanguage } from '../contexts/LanguageContext';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, FileDown } from 'lucide-react';
 import avatar from '../assets/1667434862571.jpg';
 
 export default function Hero() {
@@ -87,6 +87,15 @@ export default function Hero() {
                     {t('nav.contact')}
                   </span>
                 </button>
+                {/** Botón para descargar el CV */}
+                {/* <a
+                  href="/cv.pdf"
+                  download
+                  className="group relative flex items-center gap-2 px-6 py-3 bg-gray-800 dark:bg-white text-white dark:text-gray-800 rounded-full shadow-lg hover:shadow-xl hover:bg-gray-700 dark:hover:bg-gray-100 transition-all duration-300"
+                >
+                  <FileDown className="h-5 w-5" />
+                  <span className="font-medium">Download CV</span>
+                </a> */}
               </div>
             </div>
           </div>
