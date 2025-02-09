@@ -93,6 +93,11 @@ export const translations = {
           date: '2025-02-06',
           readTime: '30 minutes'
         }
+      },
+      categories: {
+        development: 'Development',
+        tips: 'Tips & Tricks',
+        performance: 'Performance'
       }
     }
   },
@@ -190,6 +195,11 @@ export const translations = {
           date: '2025-02-06',
           readTime: '30 minutos'
         }
+      },
+      categories: {
+        development: 'Desarrollo',
+        tips: 'Consejos y Trucos',
+        performance: 'Rendimiento'
       }
     }
   }

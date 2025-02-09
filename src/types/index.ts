@@ -46,12 +46,9 @@ export interface Translations {
   };
 }
 
-export interface LanguageStrings {
-  [key: string]: Translations;
-}
-
 export type Language = 'en' | 'es';
 export type Theme = 'light' | 'dark';
+export type BlogCategory = 'all' | 'development' | 'tips' | 'performance';
 
 export interface Project {
   title: string;
@@ -66,4 +63,5 @@ export interface BlogPost {
   readTime: string;
   imageUrl: string;
   link: string;
+  category: 'development' | 'tips' | 'performance';
 }
