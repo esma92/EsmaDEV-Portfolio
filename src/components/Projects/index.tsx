@@ -33,7 +33,7 @@ export default function Projects() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", duration: 1, bounce: 0.3 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 scroll-mt-24">
               {t('projects.title')}
@@ -45,11 +45,11 @@ export default function Projects() {
         </AnimatedSection>
         
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 auto-rows-fr"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           {projects.map((project, index) => (
             <AnimatedSection 
@@ -62,6 +62,7 @@ export default function Projects() {
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 300 }}
+                className="h-full"
               >
                 <ProjectCard
                   key={index}
