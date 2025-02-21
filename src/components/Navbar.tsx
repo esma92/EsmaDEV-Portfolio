@@ -12,14 +12,26 @@ export default function Navbar() {
 
   const navItems = ['about', 'projects', 'blog', 'contact'];
 
+  const resetAnimations = () => {
+    document.body.style.display = 'none';
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    document.body.offsetHeight; // Force reflow
+    document.body.style.display = '';
+  };
+
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    resetAnimations();
+    window.scrollTo({ 
+      top: 0, 
+      behavior: 'smooth'
+    });
     setIsMenuOpen(false);
   };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
+      resetAnimations();      
       element.scrollIntoView({ behavior: 'smooth' });
       setIsMenuOpen(false);
     }
