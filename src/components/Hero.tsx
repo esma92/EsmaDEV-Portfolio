@@ -1,6 +1,7 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import { Github, Linkedin, Mail, FileDown } from 'lucide-react';
 import avatar from '../assets/1667434862571.jpg';
+import { motion } from 'framer-motion';
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -12,6 +13,54 @@ export default function Hero() {
     }
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        duration: 0.8
+      }
+    }
+  };
+
+  const socialVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100
+      }
+    }
+  };
+
+  const avatarVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        duration: 1,
+        bounce: 0.4
+      }
+    }
+  };
+
   /** Propuesta de diseño más moderno... */
   return (
     <section id="hero" className="relative min-h-[100vh] flex items-center overflow-hidden justify-center">
@@ -19,44 +68,69 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Avatar Column */}
-          <div className="relative order-1 lg:order-2">
+          <motion.div 
+            className="relative order-1 lg:order-2"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            variants={avatarVariants}
+          >
             <div className="relative mx-auto w-64 h-64 md:w-80 md:h-80">
               {/* Rotating border effect */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 animate-spin-slow" />
               
               {/* Avatar container */}
               <div className="absolute inset-2 bg-white dark:bg-gray-800 rounded-full p-2">
-                <img
-                  src={avatar}
-                  alt="Profile"
-                  className="w-full h-full rounded-full object-cover filter hover:brightness-110 transition-all duration-300"
-                />
+                <img src={avatar} alt="Profile" className="w-full h-full rounded-full object-cover filter hover:brightness-110 transition-all duration-300" />
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Content Column */}
-          <div className="order-2 lg:order-1 text-center lg:text-left">
+          <motion.div 
+            className="order-2 lg:order-1 text-center lg:text-left"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+            variants={containerVariants}
+          >
             <div className="space-y-6">
-              <div className="space-y-2">
-                <h2 className="text-sm md:text-base text-blue-600 dark:text-blue-400 font-semibold tracking-wide uppercase">
+              <motion.div className="space-y-2" variants={itemVariants}>
+                <motion.h2 
+                  className="text-sm md:text-base text-blue-600 dark:text-blue-400 font-semibold tracking-wide uppercase"
+                  variants={itemVariants}
+                >
                   {t('hero.welcome')}
-                </h2>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white">
+                </motion.h2>
+                <motion.h1 
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white"
+                  variants={itemVariants}
+                >
                   {t('hero.greeting')}
-                </h1>
-                <p className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300">
+                </motion.h1>
+                <motion.p 
+                  className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300"
+                  variants={itemVariants}
+                >
                   {t('hero.role')}
-                </p>
-              </div>
+                </motion.p>
+              </motion.div>
 
-              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
+              <motion.p 
+                className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl"
+                variants={itemVariants}
+              >
                 {t('hero.description')}
-              </p>
+              </motion.p>
 
-              {/* Social Links */}
-              <div className="flex items-center justify-center lg:justify-start space-x-6">
-                <a
+              {/* Social Links and CV Download */}
+              <motion.div 
+                className="flex items-center justify-center lg:justify-start space-x-6"
+                variants={socialVariants}
+              >
+                <motion.a
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                   href="https://github.com/esma92"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -66,8 +140,10 @@ export default function Hero() {
                   <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
                     GitHub
                   </span>
-                </a>
-                <a
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                   href="https://www.linkedin.com/in/maria-esther-orozco-vaillant-25a467158"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -77,8 +153,10 @@ export default function Hero() {
                   <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
                     LinkedIn
                   </span>
-                </a>
-                <button
+                </motion.a>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={scrollToContact}
                   className="group relative p-4 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
                 >
@@ -86,19 +164,21 @@ export default function Hero() {
                   <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity">
                     {t('nav.contact')}
                   </span>
-                </button>
+                </motion.button>
                 {/** Botón para descargar el CV */}
-                {/* <a
+                {/* <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   href="/cv.pdf"
                   download
                   className="group relative flex items-center gap-2 px-6 py-3 bg-gray-800 dark:bg-white text-white dark:text-gray-800 rounded-full shadow-lg hover:shadow-xl hover:bg-gray-700 dark:hover:bg-gray-100 transition-all duration-300"
                 >
                   <FileDown className="h-5 w-5" />
                   <span className="font-medium">Download CV</span>
-                </a> */}
-              </div>
+                </motion.a> */}
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

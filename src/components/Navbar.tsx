@@ -3,6 +3,7 @@ import { Moon, Sun, Languages, Code, Menu, X } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useActiveSection } from '../hooks/useActiveSection';
+import { motion } from 'framer-motion';
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
@@ -58,7 +59,12 @@ export default function Navbar() {
             onClick={scrollToTop}
             className="flex-shrink-0 flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity"
           >
-            <Code className="h-6 w-6 text-gray-900 dark:text-white" />
+            <motion.div
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Code className="h-6 w-6 text-gray-900 dark:text-white" />
+            </motion.div>
             <span className="text-2xl font-bold text-gray-900 dark:text-white">EsmaDev</span>
           </div>
           
